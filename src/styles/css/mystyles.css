@@ -1,0 +1,58 @@
+body {
+    font-family:Nunito;
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.5;
+    background-color: #f2f7ff;
+    color: rgb(37, 57, 111) !important;
+}
+
+.bi {
+    color: #7452c5;
+}
+
+.btn-primary {
+    background-color: #7452c5 ;
+    border: 1px solid #523a89;
+}
+
+.btn-primary:hover {
+    background-color: #523a89 ;
+    border: 1px solid #39295e;
+}
+
+#contactForm .form-control {
+    border: 2px solid #7452c5;
+    color: rgb(37, 57, 111);
+}
+
+#contactForm textarea {
+    resize: none;
+    height: 100px;
+}
+
+h1 {
+    color: #7452c5;
+}
+
+img.colaborador {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.card-header {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: .7rem .7rem 0 0;
+}
+
+.card-body {
+    background-color: white;
+    padding: 0 1.5rem, 1.5rem, 1.5rem;
+    border-radius: 0 0 .7rem .7rem;
+}
+
+.icon-white {
+    color: white !important;
+}
