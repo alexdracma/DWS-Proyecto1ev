@@ -1,5 +1,5 @@
 <?php
-class App_Exception extends exception {
+class AppException extends exception {
 
     public function __construct($msg)
     {

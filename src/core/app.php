@@ -1,6 +1,6 @@
 <?php
 
-require_once 'exceptions/app_exception.php';
+require_once 'exceptions/AppException.php';
 
 class App {
 
@@ -12,8 +12,9 @@ class App {
 
     public static function get($key) {
         if (!array_key_exists($key, static::$container)) {
-            throw new App_Exception("No se ha encontrado la clave $key en el contenedor");
+            throw new AppException("No se ha encontrado la clave $key en el contenedor");
         }
+        return static::$container[$key];
     }
 
     public static function getConexion() {

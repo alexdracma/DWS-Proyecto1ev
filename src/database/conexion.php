@@ -1,7 +1,7 @@
 <?php
 
-require_once 'exceptions/database_exception.php';
-require_once 'core/app.php';
+require_once 'exceptions/DatabaseException.php';
+require_once 'core/App.php';
 
 class Conexion{
     public static function make(){ //funcion estática!!
@@ -16,7 +16,7 @@ class Conexion{
         }
         
         catch (PDOException){
-            throw new database_exception("Error en la conexión con la base de datos");
+            throw new DatabaseException("Error en la conexión con la base de datos");
         }
 
         return $conexion;

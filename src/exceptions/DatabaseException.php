@@ -1,5 +1,5 @@
 <?php
-class file_exception extends exception {
+class DatabaseException extends exception {
 
     public function __construct($msg)
     {
