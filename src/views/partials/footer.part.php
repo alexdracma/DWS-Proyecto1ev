@@ -6,18 +6,18 @@
 
     <div>
         <?php
-            require_once 'entities/colaborador.php';
-            require_once 'core/app.php';
-            require_once 'database/queryBuilder.php';
+            require_once 'entities/Colaborador.php';
+            require_once 'core/App.php';
+            require_once 'database/QueryBuilder.php';
             $config = require_once 'app/config.php';
 
             try {
                 App::bind('config',$config);
 
-                $qb = new QueryBuilder();
-                
                 $construct = ['nombre', 'descripcion', 'imagen'];
-                $colaboradores = $qb->getAll('colaborador', 'Colaborador', $construct);
+                $qb = new QueryBuilder('colaborador', 'Colaborador', $construct);
+                
+                $colaboradores = $qb->getAll();
 
             } catch (Exception $ex) {
                 die($ex->getMessage());
