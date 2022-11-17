@@ -6,13 +6,14 @@
         require_once 'utils/file.php';
         require_once 'entities/colaborador.php';
         require_once 'database/conexion.php';
+        $config = require 'app/config.php';
 
         try {
 
             $img = new File('colImg');
             $img->saveUploadedFile(Colaborador::RUTA_IMAGEN);
 
-            $con = Conexion::make();
+            $con = Conexion::make($config['database']);
 
             $sql = "INSERT INTO colaborador (nombre, descripcion, imagen) VALUES (:nombre, :descripcion, :imagen)";
             $pdoStatement = $con->prepare($sql);

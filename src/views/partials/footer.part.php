@@ -7,19 +7,18 @@
     <div>
         <?php
             require_once 'entities/colaborador.php';
-            require_once 'database/conexion.php';
+            require_once 'core/app.php';
+            require_once 'database/queryBuilder.php';
+            $config = require_once 'app/config.php';
 
             try {
-                $con = Conexion::make();
-    
-                $sql = "SELECT * FROM colaborador;";
-                $pdoStatement = $con->prepare($sql);
-                $pdoStatement->execute();
-    
-                $construct = ['nombre', 'descripcion', 'imagen'];
-                $colaboradores = $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Colaborador', $construct);
-                $con = null;
+                App::bind('config',$config);
+
+                $qb = new QueryBuilder();
                 
+                $construct = ['nombre', 'descripcion', 'imagen'];
+                $colaboradores = $qb->getAll('colaborador', 'Colaborador', $construct);
+
             } catch (Exception $ex) {
                 die($ex->getMessage());
             }

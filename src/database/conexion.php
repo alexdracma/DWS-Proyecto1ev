@@ -1,26 +1,25 @@
 <?php
 
-require 'exceptions/database_exception.php';
+require_once 'exceptions/database_exception.php';
+require_once 'core/app.php';
 
 class Conexion{
     public static function make(){ //funcion estática!!
         try{
-            $opciones = [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_PERSISTENT =>true
-            ];
-            
-            $conexion = new PDO('mysql:host=localhost;dbname=alejandria','root','',$opciones);
+            $config = App::get('config')['database'];
+            $conexion = new PDO(
+                $config['connection'] . ';dbname=' . $config['name'],
+                $config['username'],
+                $config['password'],
+                $config['options']
+            );
         }
         
-        catch (PDOException){ //las excepciones se muestran de manera automática
-            //die($PDOExcepetion->getMessage());
+        catch (PDOException){
             throw new database_exception("Error en la conexión con la base de datos");
         }
 
         return $conexion;
     }
 }
-//Conexion::make();
 ?>
