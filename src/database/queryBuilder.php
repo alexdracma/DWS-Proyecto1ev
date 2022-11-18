@@ -10,7 +10,7 @@ class QueryBuilder {
     private $entity;
     private $constructor;
 
-    public function __construct($table, $entity, $constructor) {
+    public function __construct($table, $entity = '', $constructor = '') {
         $this->connection = App::getConexion();
         $this->table = $table;
         $this->entity = $entity;
@@ -31,6 +31,23 @@ class QueryBuilder {
         return $all;
     }
 
+    public function save($entity) {
+
+        try {
+            $params = $entity->toArray();
+
+            $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)',
+                $this->table,
+                implode(',', array_keys($params)),
+                ':' . implode(', :', array_keys($params))
+            );
+
+            $statement = $this->connection->prepare($sql);
+            $statement->execute($params);
+        } catch (PDOException) {
+            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
+        }
+    }
 }
 
 ?>

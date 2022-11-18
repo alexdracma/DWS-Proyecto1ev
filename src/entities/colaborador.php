@@ -1,5 +1,8 @@
 <?php
-class Colaborador {
+
+require_once 'database/IEntity.php';
+
+class Colaborador implements IEntity{
     private $nombre;
     private $descripcion;
     private $imagen;
@@ -49,5 +52,11 @@ class Colaborador {
         $this->imagen = $imagen;
 
         return $this;
+    }
+
+    public function toArray() {
+        return ['nombre' => $this->getNombre(),
+                'descripcion' => $this->getDescripcion(),
+                'imagen' => $this->imagen];
     }
 }

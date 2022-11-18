@@ -4,8 +4,8 @@ return[
 
     'database' => [
         'name' => 'alejandria',
-        'username' => 'root',
-        'password' => '',
+        'username' => 'administrador',
+        'password' => '1234',
         'connection' => 'mysql:host=localhost',
         'options' => [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",

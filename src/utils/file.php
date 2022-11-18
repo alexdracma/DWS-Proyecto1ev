@@ -1,6 +1,6 @@
 <?php
 
-require_once 'exceptions/file_exception.php';
+require_once 'exceptions/FileException.php';
 
 class File {
 
@@ -12,7 +12,7 @@ class File {
         $this->file = $_FILES[$field];
 
         if (!in_array($this->getFileType(), self::acceptedFileTypes)) {
-            throw new file_exception("El archivo ha de ser de tipo jpg, jpeg, png o gif");
+            throw new FileException("El archivo ha de ser de tipo jpg, jpeg, png o gif");
         }
         
     }
@@ -26,11 +26,11 @@ class File {
         $fullPath = $this->getFullPath($path);
 
         if (is_file($fullPath)) {
-            throw new file_exception("El archivo que intentas guardar ya existe en esa ruta");
+            throw new FileException("El archivo que intentas guardar ya existe en esa ruta");
         }
 
         if(!move_uploaded_file($this->file['tmp_name'], $fullPath)) {
-            throw new file_exception("Error al guardar el archivo");
+            throw new FileException("Error al guardar el archivo");
         }
     }
 
