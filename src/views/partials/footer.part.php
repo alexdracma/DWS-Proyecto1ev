@@ -8,16 +8,15 @@
         <?php
             require_once 'entities/Colaborador.php';
             require_once 'core/App.php';
-            require_once 'database/QueryBuilder.php';
+            require_once 'repositories/ColaboradorRepository.php';
             $config = require_once 'app/config.php';
 
             try {
                 App::bind('config',$config);
 
-                $construct = ['nombre', 'descripcion', 'imagen'];
-                $qb = new QueryBuilder('colaborador', 'Colaborador', $construct);
+                $cr = new ColaboradorRepository();
                 
-                $colaboradores = $qb->getAll();
+                $colaboradores = $cr->getAll();
 
             } catch (Exception $ex) {
                 die($ex->getMessage());

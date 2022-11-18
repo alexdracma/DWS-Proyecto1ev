@@ -3,7 +3,7 @@
 require_once 'core/App.php';
 require_once 'exceptions/DatabaseException.php';
 
-class QueryBuilder {
+abstract class QueryBuilder {
 
     private $connection;
     private $table;

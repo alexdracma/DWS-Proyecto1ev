@@ -4,7 +4,7 @@
     if (isset($_POST['addColaborador'])) {
 
         require_once 'utils/File.php';
-        require_once 'entities/Colaborador.php';
+        require_once 'repositories/ColaboradorRepository.php';
         require_once 'database/QueryBuilder.php';
 
         try {
@@ -16,9 +16,9 @@
 
             $config = require 'app/config.php';
             App::bind('config',$config);
-
-            $qb = new QueryBuilder('colaborador');
-            $qb->save($colaborador);
+            
+            $cr = new ColaboradorRepository();
+            $cr->save($colaborador);
 
         } catch (Exception $ex) {
             //crear part de box de mensajes y avisar errores, tambien al subir imagen
