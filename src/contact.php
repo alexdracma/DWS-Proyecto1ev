@@ -55,7 +55,7 @@ class Form
         }
 
         $firstNum = substr($this->phone,0,1);
-        $allowedNums = ["6","7","9"];
+        $allowedNums = ["6","7","8","9"];
 
         if (!in_array($firstNum, $allowedNums)) {
             $this->errorMsg = "El teléfono ha de comenzar por 6,7 o 9";
