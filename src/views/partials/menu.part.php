@@ -14,10 +14,11 @@
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css"> -->
 
+    
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/css/styles.css">
     <link rel="stylesheet" href="styles/css/myStyles.css">
-    
+    <link href="https://dev.iconly.io/public/y6qS8rAn7aW2/iconly.css" rel="stylesheet"/>
     <!-- <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon"> -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>

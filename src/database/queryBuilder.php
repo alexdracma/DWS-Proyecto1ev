@@ -31,6 +31,21 @@ abstract class QueryBuilder {
         return $all;
     }
 
+    public function getNumberOf($where = true) {
+        
+        $sql = "SELECT COUNT(*) FROM $this->table WHERE $where";
+        
+        $pdoStatement = $this->connection->prepare($sql);
+
+        if ($pdoStatement->execute() === false) {
+            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
+        }
+
+        $count = $pdoStatement->fetchColumn();
+
+        return $count;
+    }
+
     public function save($entity) {
 
         try {
