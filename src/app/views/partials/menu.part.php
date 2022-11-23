@@ -9,18 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-    <!-- <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
-
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css"> -->
-
     
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles/css/styles.css">
-    <link rel="stylesheet" href="styles/css/myStyles.css">
+    <link rel="stylesheet" href="code/styles/css/styles.css">
+    <link rel="stylesheet" href="code/styles/css/myStyles.css">
     <link href="https://dev.iconly.io/public/y6qS8rAn7aW2/iconly.css" rel="stylesheet"/>
     <!-- <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon"> -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="code/scripts/sidebar.js" defer></script>
+    <script src="code/scripts/active.js" defer></script>
 </head>
 
 <body>
@@ -87,43 +84,3 @@
                     <i class="bi bi-justify fs-3" onclick=""></i>
                 </a>
             </header>
-            <script>
-                window.addEventListener('resize', (event) => {
-                    const w = window.innerWidth;
-                    if(w < 1200) {
-                        document.getElementById('sidebar').classList.remove('active');
-                    }else{
-                        document.getElementById('sidebar').classList.add('active');
-                    }
-                });
-
-                window.addEventListener('load', (event) => {
-                    const w = window.innerWidth;
-                    if(w < 1200) {
-                        document.getElementById('sidebar').classList.remove('active');
-                    }else{
-                        document.getElementById('sidebar').classList.add('active');
-                    }
-                })
-
-                document.querySelector('.burger-btn').addEventListener('click', () => {
-                    document.getElementById('sidebar').classList.toggle('active');
-                })
-                document.querySelector('.sidebar-hide').addEventListener('click', () => {
-                    document.getElementById('sidebar').classList.toggle('active');
-                })
-            </script>
-            <script>
-                const path = window.location.pathname;
-
-                const menuItems = document.querySelector('.sidebar-menu').querySelectorAll('li');
-                menuItems.forEach(item => {
-                    if (item.firstElementChild) {
-                        let elem = item.firstElementChild;
-                        
-                        if (elem.getAttribute('href') == path) {
-                            item.classList.add('active');
-                        }
-                    }
-                });
-            </script>
