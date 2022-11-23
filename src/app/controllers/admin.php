@@ -1,5 +1,5 @@
 <?php
-    require_once 'views/admin.view.php';
+    require_once 'app/views/admin.view.php';
 
     if (isset($_POST['addColaborador'])) {
 
@@ -13,9 +13,6 @@
             $img->saveUploadedFile(Colaborador::RUTA_IMAGEN);
 
             $colaborador = new Colaborador($_POST['colNom'], $_POST['colDesc'], $img->getName());
-
-            $config = require 'app/config.php';
-            App::bind('config',$config);
             
             $cr = new ColaboradorRepository();
             $cr->save($colaborador);

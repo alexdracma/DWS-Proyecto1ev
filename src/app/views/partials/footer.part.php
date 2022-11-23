@@ -9,10 +9,9 @@
             require_once 'entities/Colaborador.php';
             require_once 'core/App.php';
             require_once 'repositories/ColaboradorRepository.php';
-            $config = require_once 'app/config.php';
-
+            
             try {
-                App::bind('config',$config);
+                
 
                 $cr = new ColaboradorRepository();
                 

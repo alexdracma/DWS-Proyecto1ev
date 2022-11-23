@@ -31,7 +31,7 @@ abstract class QueryBuilder {
         return $all;
     }
 
-    public function getNumberOf($where = true) {
+    public function getCount($where = true) {
         
         $sql = "SELECT COUNT(*) FROM $this->table WHERE $where";
         

@@ -8,6 +8,6 @@ class PrestamoRepository extends QueryBuilder {
     }
 
     public function getNumOfPrestados() {
-        return parent::getNumberOf("fechaDevolucion IS NULL");
+        return parent::getCount("fechaDevolucion IS NULL");
     }
 }

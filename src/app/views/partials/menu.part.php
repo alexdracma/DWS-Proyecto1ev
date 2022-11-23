@@ -42,35 +42,35 @@
                         <li class="sidebar-title">Menú</li>
         
                         <li class="sidebar-item">
-                            <a href="index.php" class='sidebar-link'>
+                            <a href="/" class='sidebar-link'>
                                 <i class="bi bi-grid"></i>
                                 <span>Índice</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="books.php" class='sidebar-link'>
+                            <a href="/libros" class='sidebar-link'>
                                 <i class="bi bi-book"></i>
                                 <span>Libros</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="personal.php" class='sidebar-link'>
+                            <a href="/personal" class='sidebar-link'>
                                 <i class="bi bi-person"></i>
                                 <span>Zona Personal</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="admin.php" class='sidebar-link'>
+                            <a href="/administracion" class='sidebar-link'>
                             <i class="bi bi-wrench-adjustable-circle"></i>
                                 <span>Administración</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="contact.php" class='sidebar-link'>
+                            <a href="/contacto" class='sidebar-link'>
                             <i class="bi bi-info-square"></i>
                                 <span>Contacto</span>
                             </a>

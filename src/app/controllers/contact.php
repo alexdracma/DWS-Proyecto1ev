@@ -83,4 +83,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require_once 'views/contact.view.php';
+require_once 'app/views/contact.view.php';
