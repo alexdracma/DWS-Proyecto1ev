@@ -7,7 +7,6 @@
     <div>
         <?php
             require_once 'entities/Colaborador.php';
-            require_once 'core/App.php';
             require_once 'repositories/ColaboradorRepository.php';
             
             try {
