@@ -1,7 +1,11 @@
 <?php
 
-require 'core/bootstrap.php';
-require Router::load();
+try {
+    require 'core/bootstrap.php';
+    require Router::load();
+} catch (Error $e) {
+}
+
 // $router = new Router();
 // require 'app/routes.php';
 // require $router->redirect(Request::uri());

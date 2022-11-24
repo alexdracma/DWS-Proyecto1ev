@@ -12,7 +12,7 @@ class Router {
         if(array_key_exists($uri, self::$routes)) {
             return self::$routes[$uri];
         } else {
-            throw new NotFoundException('URI no definida');
+            throw new NotFoundException('URI ' . $uri . ' no definida');
         }
     }
 

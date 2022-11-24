@@ -61,3 +61,11 @@ img.colaborador {
 .icon-white {
     color: white !important;
 }
+
+select.form-select.dataTable-selector {
+    width: 70px;
+    display: inline;
+    padding-left: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

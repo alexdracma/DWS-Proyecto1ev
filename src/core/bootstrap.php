@@ -7,6 +7,7 @@ require_once 'exceptions/AppException.php';
 require_once 'exceptions/DatabaseException.php';
 require_once 'exceptions/FileException.php';
 require_once 'exceptions/NotFoundException.php';
+require_once 'entities/Libro.php';
 
 $config = require 'app/config.php';
 $routes = require 'app/routes.php';
