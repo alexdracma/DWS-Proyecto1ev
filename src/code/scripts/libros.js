@@ -1,5 +1,4 @@
-import {DataTable} from "../../node_modules/simple-datatables/src/index.js"
-const dataTable = new DataTable("#librosTable", {
+const dataTable = new simpleDatatables.DataTable("#librosTable", {
     labels: {
         placeholder: "Buscar...",
         perPage: "{select} &nbsp;&nbsp;&nbsp;Libros por página",
@@ -9,4 +8,4 @@ const dataTable = new DataTable("#librosTable", {
 })
 
 const select = document.querySelector('.dataTable-selector')
-select.classList.add('form-select')
+    select.classList.add('form-select')

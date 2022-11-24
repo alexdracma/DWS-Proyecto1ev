@@ -3,7 +3,8 @@
 ?>
 
 <!-- simple datatables -->
-<link href="node_modules/simple-datatables/src/style.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 <script src="code/scripts/libros.js" type="module" defer></script>
 
 <div class="page-heading">
