@@ -5,7 +5,6 @@
 
         require_once 'utils/File.php';
         require_once 'repositories/ColaboradorRepository.php';
-        require_once 'database/QueryBuilder.php';
 
         try {
 
@@ -18,8 +17,7 @@
             $cr->save($colaborador);
 
         } catch (Exception $ex) {
-            //crear part de box de mensajes y avisar errores, tambien al subir imagen
-            die($ex->getMessage());
+            $error = $ex->getMessage();
         }
     }
 ?>

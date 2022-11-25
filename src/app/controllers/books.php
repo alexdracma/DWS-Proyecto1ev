@@ -2,7 +2,11 @@
 
 require_once 'repositories/LibroRepository.php';
 
-$allBooks = (new LibroRepository())->getAll();
+try {
+    $allBooks = (new LibroRepository())->getAll();
+} catch (Exception $e) {
+    $error = $e->getMessage();
+}
 
 require_once 'app/views/books.view.php'
 ?>

@@ -4,5 +4,6 @@ try {
     require 'core/bootstrap.php';
     require Router::load();
 } catch (Exception $e) {
-    die($e->getMessage());
+    $error = $e->getMessage();
+    require 'app/controllers/error.php';
 }
