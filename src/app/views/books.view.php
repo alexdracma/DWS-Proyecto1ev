@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     <?php
-
+                        $lb = new LibroRepository();
                         foreach ($allBooks as $book) {
                             ?>
                             <tr>
@@ -38,8 +38,13 @@
                                 <td><?php echo $book->getAutor()?></td>
                                 <td><?php echo $book->getGenero()?></td>
                                 <td>
-                                    <span class="badge bg-success">Libre</span>
-                                    <!-- <span class="badge bg-danger">Prestado</span> -->
+                                    <?php
+                                    if($lb->isPrestado($book)) {
+                                        echo '<span class="badge bg-danger">Prestado</span>';
+                                    } else {
+                                        echo '<span class="badge bg-success">Libre</span>';
+                                    }
+                                    ?>
                                 </td>
                             </tr>
                             <?php

@@ -7,5 +7,15 @@ class LibroRepository extends QueryBuilder {
         parent::__construct($table, $entity, $args);
     }
 
-    //crear función que mire si el libro esta prestado
+    public function isPrestado($libro):bool {
+        $pr = new PrestamoRepository();
+        $id = $libro->getId();
+
+        $registros = $pr->getWhere("libro = $id AND fechaDevolucion IS NULL");
+
+        if (count($registros) > 0) {
+            return true;
+        }
+        return false;
+    }
 }

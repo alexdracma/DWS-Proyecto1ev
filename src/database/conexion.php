@@ -14,7 +14,7 @@ class Conexion{
                 $config['options']
             );
         }
-        
+
         catch (PDOException){
             throw new DatabaseException("Error en la conexión con la base de datos");
         }
