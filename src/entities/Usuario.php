@@ -5,12 +5,29 @@ require_once 'database/IEntity.php';
 class Usuario implements IEntity {
 
     private $email;
-    private $nombreCompleto;
+    private $nombre;
+    private $apellidos;
     private $fechaNacimiento;
     private $telefono;
     private $imagen;
     const RUTA_IMAGEN = 'assets/images/usuarios/';
 
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+    public function setNombre($nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+    public function getApellidos()
+    {
+        return $this->apellidos;
+    }
+    public function setApellidos($apellidos): void
+    {
+        $this->apellidos = $apellidos;
+    }
     public function getUrlImagen() {
         return self::RUTA_IMAGEN . $this->imagen;
     }
@@ -24,7 +41,7 @@ class Usuario implements IEntity {
     }
 
     public function getNombreCompleto() {
-        return $this->nombreCompleto;
+        return $this->nombre . " " . $this->apellidos;
     }
 
     public function setNombreCompleto($nombreCompleto) {
@@ -58,7 +75,8 @@ class Usuario implements IEntity {
     public function toArray() {
         return [
             'email' => $this->getEmail(),
-            'nombreCompleto' => $this->getNombreCompleto(),
+            'nombre' => $this->getNombre(),
+            'apellidos' => $this->getApellidos(),
             'fechaNacimiento' => $this->getFechaNacimiento(),
             'telefono' => $this->getTelefono(),
             'imagen' => $this->getImagen()
