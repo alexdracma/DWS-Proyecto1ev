@@ -26,9 +26,7 @@ abstract class QueryBuilder {
             throw new DatabaseException("No se ha podido ejecutar la query solicitada");
         }
 
-        $all = $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->entity, $this->constructor);
-
-        return $all;
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->entity, $this->constructor);
     }
 
     public function getCount($where = true) {
@@ -41,9 +39,20 @@ abstract class QueryBuilder {
             throw new DatabaseException("No se ha podido ejecutar la query solicitada");
         }
 
-        $count = $pdoStatement->fetchColumn();
+        return $pdoStatement->fetchColumn();
+    }
 
-        return $count;
+    public function getWhere($where) {
+
+        $sql = "SELECT * FROM $this->table WHERE $where";
+
+        $pdoStatement = $this->connection->prepare($sql);
+
+        if ($pdoStatement->execute() === false) {
+            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->entity, $this->constructor);
     }
 
     public function save($entity) {
@@ -64,5 +73,3 @@ abstract class QueryBuilder {
         }
     }
 }
-
-?>

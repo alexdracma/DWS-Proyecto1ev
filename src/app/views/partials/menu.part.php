@@ -79,8 +79,21 @@
             </div>
         </div>
         <div id="main">
+            <div id="messageBox">
+                <div id="messageBar"></div>
+                <div id="messageIcon" class="p-2"><i></i></div>
+                <div id="messageText"></div>
+            </div>
+            <script src="code/scripts/messageBox.js"></script>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3" onclick=""></i>
                 </a>
             </header>
+<?php
+if(isset($message)) {
+    echo "<script>showMessage('$message')</script>";
+}
+if(isset($error)) {
+    echo "<script>showError('$error')</script>";
+}

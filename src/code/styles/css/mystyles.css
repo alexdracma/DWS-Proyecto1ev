@@ -69,3 +69,43 @@ select.form-select.dataTable-selector {
     padding-top: 8px;
     padding-bottom: 8px;
 }
+
+#main {
+    position: relative;
+}
+
+#messageBox {
+    display: none;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    background: white;
+    top: 10px;
+    right: 30px;
+    width: 20vw;
+    border-radius: 4px;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 4px 0 #999;
+    -moz-box-shadow: 2px 2px 4px 0 #999;
+    box-shadow: 2px 2px 4px 0 #999;
+    font-size: .8rem;
+}
+
+#messageBar {
+    width: 5px;
+    background: #7452c5;
+}
+
+#messageIcon {
+    width: 40px;
+    font-size: 25px;
+}
+
+#messageIcon i::before {
+    display: block;
+    margin: auto;
+}
+
+#messageText {
+    padding: 0 3px;
+}

@@ -12,6 +12,7 @@ require_once 'repositories/LibroRepository.php';
 require_once 'repositories/UsuarioRepository.php';
 require_once 'repositories/PrestamoRepository.php';
 require_once 'repositories/ColaboradorRepository.php';
+require_once 'repositories/MensajeRepository.php';
 
 $config = require 'app/config.php';
 $routes = require 'app/routes.php';
