@@ -5,12 +5,22 @@ require_once 'database/IEntity.php';
 class Usuario implements IEntity {
 
     private $email;
-    private $nombre;
-    private $apellidos;
     private $fechaNacimiento;
     private $telefono;
     private $imagen;
+    private $nombre;
+    private $apellidos;
     const RUTA_IMAGEN = 'assets/images/usuarios/';
+
+    public function __construct($email, $fechaNacimiento, $telefono, $imagen, $nombre, $apellidos)
+    {
+        $this->email = $email;
+        $this->fechaNacimiento = $fechaNacimiento;
+        $this->telefono = $telefono;
+        $this->imagen = $imagen;
+        $this->nombre = $nombre;
+        $this->apellidos = $apellidos;
+    }
 
     public function getNombre()
     {
@@ -75,11 +85,11 @@ class Usuario implements IEntity {
     public function toArray() {
         return [
             'email' => $this->getEmail(),
-            'nombre' => $this->getNombre(),
-            'apellidos' => $this->getApellidos(),
             'fechaNacimiento' => $this->getFechaNacimiento(),
             'telefono' => $this->getTelefono(),
-            'imagen' => $this->getImagen()
+            'imagen' => $this->getImagen(),
+            'nombre' => $this->getNombre(),
+            'apellidos' => $this->getApellidos()
         ];
     }
 }

@@ -2,10 +2,7 @@
 
 try {
     require 'core/bootstrap.php';
-
-    
-
     require Router::load();
-} catch (Error $e) {
+} catch (Exception $e) {
     die($e->getMessage());
 }

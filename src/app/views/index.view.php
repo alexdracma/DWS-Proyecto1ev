@@ -3,7 +3,7 @@
 ?>
 
 <div class="page-heading">
-    <h3>Bienvenid@ Administrador</h3>
+    <h3>Bienvenid@ <?php echo $currentUser->getNombre();?></h3>
 </div>
 <div class="page-content" id="index">
     <section class="row">
@@ -83,14 +83,14 @@
         <!-- User -->
         <div class="col-12 col-lg-3">
             <div class="card">
-                <div class="card-body py-4 px-5">
+                <div class="card-body py-4 px-2">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
-                            <img src="assets/images/faces/1.jpg" alt="Face 1">
+                            <img src="<?php echo $currentUser->getUrlImagen();?>" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
-                            <h5 class="font-bold">John Duck</h5>
-                            <h6 class="text-muted mb-0">@johnducky</h6>
+                            <h5 class="font-bold"><?php echo $currentUser->getNombreCompleto();?></h5>
+                            <h6 class="text-muted mb-0"><?php echo $currentUser->getEmail();?></h6>
                         </div>
                     </div>
                 </div>
