@@ -1,0 +1,111 @@
+body {
+    font-family: Nunito;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #f2f7ff;
+    color: rgb(37, 57, 111) !important;
+}
+
+.bi {
+    color: #7452c5;
+}
+
+.btn-primary {
+    background-color: #7452c5;
+    border: 1px solid #523a89;
+}
+
+.btn-primary:hover {
+    background-color: #523a89;
+    border: 1px solid #39295e;
+}
+
+.form-control {
+    border: 2px solid #7452c5;
+    color: rgb(37, 57, 111);
+}
+
+#contactForm textarea {
+    resize: none;
+    height: 100px;
+}
+
+h1,
+h3 {
+    color: #7452c5;
+    font-weight: 700;
+}
+
+img.colaborador {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.card {
+    border-radius: .7rem;
+}
+
+.card-header {
+    padding: 1.5rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .125)
+}
+
+.card-header:first-child {
+    border-radius: calc(.7rem - 1px) calc(.7rem - 1px) 0 0
+}
+
+.icon-white {
+    color: white !important;
+}
+
+select.form-select.dataTable-selector {
+    width: 70px;
+    display: inline;
+    padding-left: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#main {
+    position: relative;
+}
+
+#messageBox {
+    display: none;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    background: white;
+    top: 10px;
+    right: 30px;
+    width: 20vw;
+    border-radius: 4px;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 4px 0 #999;
+    -moz-box-shadow: 2px 2px 4px 0 #999;
+    box-shadow: 2px 2px 4px 0 #999;
+    font-size: .8rem;
+}
+
+#messageBar {
+    width: 5px;
+    background: #7452c5;
+}
+
+#messageIcon {
+    width: 40px;
+    font-size: 25px;
+}
+
+#messageIcon i::before {
+    display: block;
+    margin: auto;
+}
+
+#messageText {
+    padding: 0 3px;
+}
