@@ -13,9 +13,10 @@ class LibroRepository extends QueryBuilder {
 
         $registros = $pr->getWhere("libro = $id AND fechaDevolucion IS NULL");
 
-        if (count($registros) > 0) {
-            return true;
+        //si es de tipo array es que no ha encontrado ninguno
+        if (gettype($registros) === "array") {
+            return false;
         }
-        return false;
+        return true;
     }
 }

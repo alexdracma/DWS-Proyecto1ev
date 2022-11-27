@@ -1,23 +1,29 @@
 <?php
-    require_once 'app/views/admin.view.php';
 
-    if (isset($_POST['addColaborador'])) {
+$usuarios = (new UsuarioRepository())->getAll();
 
-        require_once 'utils/File.php';
-        require_once 'repositories/ColaboradorRepository.php';
+if (isset($_POST['addColaborador'])) {
 
-        try {
+    require_once 'utils/File.php';
 
-            $img = new File('colImg');
-            $img->saveUploadedFile(Colaborador::RUTA_IMAGEN);
+    try {
 
-            $colaborador = new Colaborador($_POST['colNom'], $_POST['colDesc'], $img->getName());
-            
-            $cr = new ColaboradorRepository();
-            $cr->save($colaborador);
+        $img = new File('colImg');
+        $img->saveUploadedFile(Colaborador::RUTA_IMAGEN);
 
-        } catch (Exception $ex) {
-            $error = $ex->getMessage();
-        }
+        $colaborador = new Colaborador($_POST['colNom'], $_POST['colDesc'], $img->getName());
+
+        $cr = new ColaboradorRepository();
+        $cr->save($colaborador);
+
+    } catch (Exception $ex) {
+        $error = $ex->getMessage();
     }
-?>
+}
+
+if (isset($_POST['changeUser'])) {
+    $selected = $_POST['selectedUser'];
+    setcookie('currentUser',$selected,0);
+    $_COOKIE['currentUser'] = $selected;
+}
+require_once 'app/views/admin.view.php';

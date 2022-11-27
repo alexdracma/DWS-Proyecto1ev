@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Iconly -->
     <link href="https://dev.iconly.io/public/y6qS8rAn7aW2/iconly.css" rel="stylesheet"/>
+    <!-- simple datatables -->
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+    <script src="code/scripts/datatables.js" type="module" defer></script>
     <!-- Personal -->
     <link rel="stylesheet" href="code/styles/css/styles.css">
     <link rel="stylesheet" href="code/styles/css/myStyles.css">

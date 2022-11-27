@@ -20,13 +20,7 @@ abstract class QueryBuilder {
     public function getAll() {
 
         $sql = "SELECT * FROM $this->table";
-        $pdoStatement = $this->connection->prepare($sql);
-
-        if ($pdoStatement->execute() === false) {
-            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
-        }
-
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->entity, $this->constructor);
+        return $this->exec($sql);
     }
 
     public function getCount($where = true) {
@@ -46,13 +40,7 @@ abstract class QueryBuilder {
 
         $sql = "SELECT * FROM $this->table WHERE $where";
 
-        $pdoStatement = $this->connection->prepare($sql);
-
-        if ($pdoStatement->execute() === false) {
-            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
-        }
-
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->entity, $this->constructor);
+        return $this->exec($sql);
     }
 
     public function save($entity) {
@@ -71,5 +59,38 @@ abstract class QueryBuilder {
         } catch (PDOException) {
             throw new DatabaseException("No se ha podido ejecutar la query solicitada");
         }
+    }
+
+    protected function exec($sql) {
+
+        $pdoStatement = $this->connection->prepare($sql);
+
+        if ($pdoStatement->execute() === false) {
+            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
+        }
+
+        $all = $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->entity, $this->constructor);
+
+        if (count($all) === 1) {
+            return $all[0];
+        }
+
+        return $all;
+    }
+
+    protected function execNoParams($sql) {
+        $pdoStatement = $this->connection->prepare($sql);
+
+        if ($pdoStatement->execute() === false) {
+            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
+        }
+
+        $all = $pdoStatement->fetchAll();
+
+        if (count($all) === 1) {
+            return $all[0];
+        }
+
+        return $all;
     }
 }

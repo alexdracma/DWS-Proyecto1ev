@@ -7,3 +7,10 @@ try {
     $error = $e->getMessage();
     require 'app/controllers/error.php';
 }
+
+//TODO Requisitos
+//FIXME Requisitos
+//-Insertar usuarios nuevos.
+//-Crear nuevos préstamos.
+//-Comprobar los libros que tiene o se han prestado a cada usuario.
+//-Insertar las consultas del formulario de consultas.

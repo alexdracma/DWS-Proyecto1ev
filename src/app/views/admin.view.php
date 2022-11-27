@@ -4,6 +4,7 @@
 
 <h1 class="mb-4">Administración</h1>
 
+<!-- Añadir colaborador -->
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -25,6 +26,36 @@
                         <input type="file" id="imageUpload" class="d-none" name="colImg" required>
                         <input type="submit" value="Añadir" name="addColaborador" class="btn btn-primary">
                     </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Cambiar de usuario -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Cambiar de usuario</h4>
+            </div>
+            <form method="post" class="card-body" style="position: relative;">
+                <div class="row">
+                    <div class="col-6">
+                        <select name="selectedUser" class="form-select">
+                            <?php
+                            $currentUser = $_COOKIE['currentUser'];
+                            foreach ($usuarios as $usuario) {
+                                $email = $usuario->getEmail();
+                                ?>
+                                <option value="<?php echo $email?>"<?php echo ($email === $currentUser)?"selected":"";?>>
+                                    <?php echo $usuario->getNombreCompleto() . " (" . $email . ")"?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-1 ms-1"> <input type="submit" value="Cambiar" name="changeUser" class="btn btn-primary"></div>
                 </div>
             </form>
         </div>
