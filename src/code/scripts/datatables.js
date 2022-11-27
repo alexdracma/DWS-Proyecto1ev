@@ -13,8 +13,12 @@ switch (path) {
             perPage: 5,
             columns: [
                 { select: 2, sort: "desc" }
-            ]
+            ],
+            perPageSelect: false,
+            searchable: false
         })
+        const top = document.querySelector('.dataTable-top')
+        top.classList.add('d-none')
     break;
     case '/libros':
         dataTable = new simpleDatatables.DataTable("#librosTable", {
@@ -27,9 +31,8 @@ switch (path) {
             perPage: 7,
             perPageSelect: [7,14,21,28,35]
         })
+        const select = document.querySelector('.dataTable-selector')
+        select.classList.add('form-select')
     break;
 }
-
-const select = document.querySelector('.dataTable-selector')
-select.classList.add('form-select')
 

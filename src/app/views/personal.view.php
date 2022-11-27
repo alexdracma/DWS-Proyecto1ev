@@ -42,11 +42,11 @@ require_once 'partials/menu.part.php';
                                             <?php echo $prestamo['fechaMaxDevolucion'] ?></td>
                                         <td>
                                             <?php
-                                                if ($prestamo['fechaDevolucion'] === null) {
-                                                    echo '<span class="badge bg-danger">En curso</span>';
-                                                } else {
-                                                    echo '<span class="badge bg-success">Devuelto</span>';
-                                                }
+                                            if ($prestamo['fechaDevolucion'] === null) {
+                                                echo '<span class="badge bg-danger">En curso</span>';
+                                            } else {
+                                                echo '<span class="badge bg-success">Devuelto</span>';
+                                            }
                                             ?>
                                         </td>
                                     </tr>
@@ -62,7 +62,7 @@ require_once 'partials/menu.part.php';
         </div>
         <!-- User -->
         <div class="col-12 col-lg-3">
-            <div class="card">
+            <div class="card userCard">
                 <div class="card-body py-4 px-2">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
@@ -75,6 +75,37 @@ require_once 'partials/menu.part.php';
                     </div>
                 </div>
             </div>
+            <!-- Mensajes -->
+            <div class="card">
+                <div class="card-header">
+                    <h4>Mensajes enviados</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-lg">
+                            <thead>
+                            <tr>
+                                <th>Asunto</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach ($mensajes as $mensaje) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $mensaje->getAsunto()?></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-8">
+
         </div>
     </section>
 </div>

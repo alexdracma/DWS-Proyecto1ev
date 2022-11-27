@@ -1,6 +1,16 @@
 <?php
 
-$usuarios = (new UsuarioRepository())->getAll();
+try {
+    $numOfBooks = (new LibroRepository())->getCount();
+    $numOfUsers = (new UsuarioRepository())->getCount();
+    $numOfPrestamos = (new PrestamoRepository())->getNumOfPrestados();
+    $numOfColaboradores = (new ColaboradorRepository())->getCount();
+    $usuarios = (new UsuarioRepository())->getAll();
+} catch (Exception $e) {
+    $error = $e->getMessage();
+} catch (Error $e) {
+    $error = $e->getMessage();
+}
 
 if (isset($_POST['addColaborador'])) {
 

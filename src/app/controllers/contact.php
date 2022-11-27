@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } catch (Exception $e) {
         $error = $e->getMessage();
+    } catch (Error $e) {
+        $error = $e->getMessage();
     }
 }
 

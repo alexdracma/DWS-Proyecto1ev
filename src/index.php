@@ -12,5 +12,3 @@ try {
 //FIXME Requisitos
 //-Insertar usuarios nuevos.
 //-Crear nuevos préstamos.
-//-Comprobar los libros que tiene o se han prestado a cada usuario.
-//-Insertar las consultas del formulario de consultas.

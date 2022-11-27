@@ -115,3 +115,7 @@ ul.dataTable-pagination-list .active a{
     color: #fff;
     background-color: #7452c5;
 }
+
+.card.userCard {
+    margin-bottom: 1.5rem;
+}
