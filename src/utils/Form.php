@@ -29,8 +29,8 @@ class Form
     }
 
     private function validateName():bool {
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $this->fullName)) {
-            $this->errorMsg = "Solo se permiten letras y espacios en blanco en el nombre";
+        if (!preg_match("/^\pL+(?>[- ']\pL+)*$/ui", $this->fullName)) {
+            $this->errorMsg = "Solo se permiten letras en el nombre";
             return false;
         }
         return true;

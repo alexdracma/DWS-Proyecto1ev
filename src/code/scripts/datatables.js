@@ -31,8 +31,24 @@ switch (path) {
             perPage: 7,
             perPageSelect: [7,14,21,28,35]
         })
-        const select = document.querySelector('.dataTable-selector')
-        select.classList.add('form-select')
+        addFormSelect()
     break;
+    case '/administracion':
+        dataTable = new simpleDatatables.DataTable("#messageTable", {
+            labels: {
+                placeholder: "Buscar...",
+                perPage: "{select} &nbsp;&nbsp;&nbsp;Mensajes por página",
+                noRows: "No se han encontrado registros",
+                info: "Mostrando registros {start} a {end} de {rows} totales",
+            },
+            perPage: 4,
+            perPageSelect: false
+        })
+    break;
+}
+
+function addFormSelect() {
+    const select = document.querySelector('.dataTable-selector')
+    select.classList.add('form-select')
 }
 

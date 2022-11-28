@@ -3,6 +3,7 @@
 require_once 'core/App.php';
 require_once 'core/Request.php';
 require_once 'core/Router.php';
+require_once 'utils/utils.php';
 require_once 'exceptions/AppException.php';
 require_once 'exceptions/DatabaseException.php';
 require_once 'exceptions/FileException.php';

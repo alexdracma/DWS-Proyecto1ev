@@ -21,10 +21,10 @@ body {
     border: 1px solid #39295e;
 }
 
-.form-control, .form-select, .dataTable-input {
-    border: 2px solid #7452c5;
-    color: rgb(37, 57, 111);
-    font-family: Nunito, serif;
+.form-control, .form-select, .dataTable-input, .ts-control {
+    border: 2px solid #7452c5 !important;
+    color: rgb(37, 57, 111) !important;
+    font-family: Nunito, serif !important;
 }
 
 #contactForm textarea {
@@ -119,3 +119,22 @@ ul.dataTable-pagination-list .active a{
 .card.userCard {
     margin-bottom: 1.5rem;
 }
+
+.card.lastAdminRow {
+    height: 450px;
+}
+
+@media (min-width:990px) {
+    .messageTable {
+        height: 370px;
+        overflow: scroll;
+    }
+}
+
+@media (max-width: 990px) {
+    .card.lastAdminRow {
+        height: auto;
+    }
+}
+
+

@@ -82,7 +82,7 @@ require_once 'partials/menu.part.php';
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-lg">
+                        <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th>Asunto</th>

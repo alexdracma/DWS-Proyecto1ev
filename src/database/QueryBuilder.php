@@ -47,7 +47,6 @@ abstract class QueryBuilder {
 
         try {
             $params = $entity->toArray();
-
             $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)',
                 $this->table,
                 implode(',', array_keys($params)),
@@ -57,6 +56,14 @@ abstract class QueryBuilder {
             $statement = $this->connection->prepare($sql);
             $statement->execute($params);
         } catch (PDOException) {
+            throw new DatabaseException("No se ha podido ejecutar la query solicitada");
+        }
+    }
+
+    protected function voidExec($sql):void {
+        $pdoStatement = $this->connection->prepare($sql);
+
+        if ($pdoStatement->execute() === false) {
             throw new DatabaseException("No se ha podido ejecutar la query solicitada");
         }
     }
@@ -78,7 +85,7 @@ abstract class QueryBuilder {
         return $all;
     }
 
-    protected function execNoParams($sql) {
+    protected function fetchNoParams($sql) {
         $pdoStatement = $this->connection->prepare($sql);
 
         if ($pdoStatement->execute() === false) {
@@ -86,10 +93,6 @@ abstract class QueryBuilder {
         }
 
         $all = $pdoStatement->fetchAll();
-
-        if (count($all) === 1) {
-            return $all[0];
-        }
 
         return $all;
     }

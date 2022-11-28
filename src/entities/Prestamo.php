@@ -10,7 +10,7 @@ class Prestamo implements IEntity {
     private $fechaMaxDevolucion;
     private $fechaDevolucion;
 
-    public function __construct($libro, $usuario, $fechaPrestamo, $fechaMaxDevolucion, $fechaDevolucion) {
+    public function __construct($libro, $usuario, $fechaPrestamo, $fechaMaxDevolucion = null, $fechaDevolucion = null) {
         $this->libro = $libro;
         $this->usuario = $usuario;
         $this->fechaPrestamo = $fechaPrestamo;
@@ -72,9 +72,7 @@ class Prestamo implements IEntity {
         return [
             'libro' => $this->getLibro(),
             'usuario' => $this->getUsuario(),
-            'fechaPrestamo' => $this->getFechaPrestamo(),
-            'fechaMaxDevolucion' => $this->getFechaMaxDevolucion(),
-            'fechaDevolucion' => $this->getFechaDevolucion()
+            'fechaPrestamo' => $this->getFechaPrestamo()
         ];
     }
 }

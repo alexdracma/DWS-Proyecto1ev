@@ -10,5 +10,6 @@ try {
 
 //TODO Requisitos
 //FIXME Requisitos
-//-Insertar usuarios nuevos.
-//-Crear nuevos préstamos.
+//-Ver que pongo en la pagina de inicio
+//-hacer popup de mensajes
+//-cambiar ancho del div de mensajes

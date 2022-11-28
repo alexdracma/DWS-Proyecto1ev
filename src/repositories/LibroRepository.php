@@ -19,4 +19,14 @@ class LibroRepository extends QueryBuilder {
         }
         return true;
     }
+
+    public function getLibres() {
+        $sql = "SELECT * FROM libro WHERE id NOT IN (SELECT libro FROM prestamo where fechaDevolucion is null);";
+        return parent::exec($sql);
+    }
+
+    public function getPrestados() {
+        $sql = "SELECT * FROM libro WHERE id IN (SELECT libro FROM prestamo where fechaDevolucion is null);";
+        return parent::exec($sql);
+    }
 }
