@@ -116,18 +116,35 @@ ul.dataTable-pagination-list .active a{
     background-color: #7452c5;
 }
 
+.card.userCardAdmin {
+    margin-bottom: 1.5rem;
+}
+
 .card.userCard {
     margin-bottom: 1.5rem;
+    max-height: 123px;
 }
 
 .card.lastAdminRow {
     height: 450px;
 }
 
+.card.prestamos {
+    height: 435px;
+}
+
+.messageCard {
+    height: 223px;
+    overflow: scroll;
+}
+
+.fixed-height {
+    height: 400px;
+}
+
 @media (min-width:990px) {
     .messageTable {
-        height: 370px;
-        overflow: scroll;
+        height: 393px;
     }
 }
 

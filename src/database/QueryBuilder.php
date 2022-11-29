@@ -60,6 +60,17 @@ abstract class QueryBuilder {
         }
     }
 
+    protected function transaction($executeQuerys) {
+        try {
+            $this->connection->beginTransaction();
+            $executeQuerys();
+            $this->connection->commit();
+        } catch (PDOException $e) {
+            $this->connection->rollback();
+            throw new DatabaseException('No se ha podido realizar la query');
+        }
+    }
+
     protected function voidExec($sql):void {
         $pdoStatement = $this->connection->prepare($sql);
 

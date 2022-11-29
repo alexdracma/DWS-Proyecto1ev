@@ -1,10 +1,7 @@
 <?php
 require_once 'partials/menu.part.php';
 ?>
-
-<!-- Tom select -->
-<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<!-- Tom Select -->
 <script src="code/scripts/select.js" defer></script>
 
 <div class="page-heading">
@@ -130,14 +127,16 @@ require_once 'partials/menu.part.php';
             <div class="row">
                 <!-- Cambiar de usuario -->
                 <div class="col-12 mb-0">
-                    <div class="card userCard">
+                    <div class="card userCardAdmin">
                         <div class="card-header">
                             <h4>Cambiar de usuario</h4>
                         </div>
                         <form method="post" class="card-body" style="position: relative;">
                             <div class="row">
                                 <div class="col-6 col-lg-12 mb-lg-2">
-                                    <select name="selectedUser" class="form-select">
+                                    <select name="selectedUser" class="form-select" id="changeUserSelect" 
+                                            placeholder="Usuario" autocomplete="off" required>
+                                        <option value=""></option>
                                         <?php
                                         $currentUser = $_COOKIE['currentUser'];
                                         foreach ($usuarios as $usuario) {
@@ -220,7 +219,7 @@ require_once 'partials/menu.part.php';
             <div class="row">
                 <!-- Prestar libro -->
                 <div class="col-12">
-                    <div class="card userCard">
+                    <div class="card userCardAdmin">
                         <div class="card-header">
                             <h4>Prestar libro</h4>
                         </div>

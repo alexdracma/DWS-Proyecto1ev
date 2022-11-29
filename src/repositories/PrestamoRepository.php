@@ -13,6 +13,7 @@ class PrestamoRepository extends QueryBuilder {
     }
 
     public function devolver($libro) {
+
         $date = (new DateTime())->format('Y-m-d');
         $sql = "UPDATE prestamo set fechaDevolucion = $date WHERE libro = $libro AND fechaDevolucion IS NULL";
         parent::voidExec($sql);

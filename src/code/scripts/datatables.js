@@ -15,7 +15,8 @@ switch (path) {
                 { select: 2, sort: "desc" }
             ],
             perPageSelect: false,
-            searchable: false
+            searchable: false,
+            fixedHeight: true
         })
         const top = document.querySelector('.dataTable-top')
         top.classList.add('d-none')
@@ -29,7 +30,8 @@ switch (path) {
                 info: "Mostrando registros {start} a {end} de {rows} totales",
             },
             perPage: 7,
-            perPageSelect: [7,14,21,28,35]
+            perPageSelect: [7,14,21,28,35],
+            fixedHeight: true
         })
         addFormSelect()
     break;
@@ -41,8 +43,9 @@ switch (path) {
                 noRows: "No se han encontrado registros",
                 info: "Mostrando registros {start} a {end} de {rows} totales",
             },
-            perPage: 4,
-            perPageSelect: false
+            perPage: 5,
+            perPageSelect: false,
+            fixedHeight: true
         })
     break;
 }

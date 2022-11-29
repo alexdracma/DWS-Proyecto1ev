@@ -23,6 +23,9 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
     <script src="code/scripts/datatables.js" type="module" defer></script>
+    <!-- Tom select -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <!-- Personal -->
     <link rel="stylesheet" href="code/styles/css/styles.css">
     <link rel="stylesheet" href="code/styles/css/myStyles.css">

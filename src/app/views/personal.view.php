@@ -11,7 +11,7 @@ require_once 'partials/menu.part.php';
         <div class="col-12 col-lg-9">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card prestamos">
                         <div class="card-header">
                             <h4>Mis prestamos</h4>
                         </div>
@@ -80,7 +80,7 @@ require_once 'partials/menu.part.php';
                 <div class="card-header">
                     <h4>Mensajes enviados</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body messageCard">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
