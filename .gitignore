@@ -8,3 +8,7 @@ dist/
 vendor/
 logs/
 logs/*
+*.log
+src/logs
+src/logs/
+src/logs/*
