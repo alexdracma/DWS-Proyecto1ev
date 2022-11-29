@@ -30,6 +30,7 @@ try {
         setcookie('currentUser',$selected,0);
         $_COOKIE['currentUser'] = $selected;
         $message = "Usuario cambiado correctamente";
+        logInfo($message);
     }
 
     //Añadir libro

@@ -29,3 +29,7 @@ function validatePhone($phone): bool {
     }
     return true;
 }
+
+function logInfo($message) {
+    App::get('logger')->Add($message);
+}
