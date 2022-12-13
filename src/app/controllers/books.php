@@ -1,6 +1,8 @@
 <?php
 
-require_once 'repositories/LibroRepository.php';
+namespace biblioteca\app\controllers;
+
+use biblioteca\app\repositories\LibroRepository;
 
 try {
     $allBooks = (new LibroRepository())->getAll();

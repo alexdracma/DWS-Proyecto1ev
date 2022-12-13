@@ -1,7 +1,10 @@
 <?php
 
-require_once 'core/App.php';
-require_once 'exceptions/DatabaseException.php';
+namespace biblioteca\database;
+
+use biblioteca\app\exceptions\DatabaseException;
+use biblioteca\core\App;
+use PDO;
 
 abstract class QueryBuilder {
 

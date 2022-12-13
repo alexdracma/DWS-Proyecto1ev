@@ -6,8 +6,9 @@
 
     <div>
         <?php
-            require_once 'entities/Colaborador.php';
-            require_once 'repositories/ColaboradorRepository.php';
+
+        use biblioteca\app\repositories\ColaboradorRepository;
+        use biblioteca\app\entities\Colaborador;
             
             try {
                 

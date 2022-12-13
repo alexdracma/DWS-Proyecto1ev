@@ -1,4 +1,7 @@
 <?php
+
+namespace biblioteca\app\utils;
+
 class Form
 {
     public $fullName;

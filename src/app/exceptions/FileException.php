@@ -1,5 +1,9 @@
 <?php
-class DatabaseException extends exception {
+
+namespace biblioteca\app\exceptions;
+
+class FileException extends \Exception
+{
 
     public function __construct($msg)
     {

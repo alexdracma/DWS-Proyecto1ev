@@ -1,5 +1,9 @@
 <?php
 
+namespace biblioteca\core;
+
+use biblioteca\app\exceptions\NotFoundException;
+
 class Router {
 
 

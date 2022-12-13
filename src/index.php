@@ -1,5 +1,7 @@
 <?php
 
+use biblioteca\core\Router;
+
 try {
     require 'core/bootstrap.php';
     require Router::load();

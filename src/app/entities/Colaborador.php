@@ -1,8 +1,11 @@
 <?php
 
-require_once 'database/IEntity.php';
+namespace biblioteca\app\entities;
 
-class Colaborador implements IEntity{
+use biblioteca\database\IEntity;
+
+class Colaborador implements IEntity
+{
     private $nombre;
     private $descripcion;
     private $imagen;
@@ -15,7 +18,8 @@ class Colaborador implements IEntity{
         $this->imagen = $imagen;
     }
 
-    public function getUrlImagen() {
+    public function getUrlImagen()
+    {
         return self::RUTA_IMAGEN . $this->imagen;
     }
 
@@ -23,6 +27,7 @@ class Colaborador implements IEntity{
     {
         return $this->nombre;
     }
+
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -41,7 +46,7 @@ class Colaborador implements IEntity{
 
         return $this;
     }
- 
+
     public function getNombreArchivo()
     {
         return $this->imagen;
@@ -54,9 +59,10 @@ class Colaborador implements IEntity{
         return $this;
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return ['nombre' => $this->getNombre(),
-                'descripcion' => $this->getDescripcion(),
-                'imagen' => $this->imagen];
+            'descripcion' => $this->getDescripcion(),
+            'imagen' => $this->imagen];
     }
 }

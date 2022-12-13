@@ -1,5 +1,18 @@
 <?php
 
+namespace biblioteca\app\controllers;
+
+use biblioteca\app\entities\Colaborador;
+use biblioteca\app\entities\Libro;
+use biblioteca\app\entities\Usuario;
+use biblioteca\app\repositories\ColaboradorRepository;
+use biblioteca\app\repositories\LibroRepository;
+use biblioteca\app\repositories\MensajeRepository;
+use biblioteca\app\repositories\PrestamoRepository;
+use biblioteca\app\repositories\UsuarioRepository;
+use biblioteca\app\utils\Utils;
+use biblioteca\app\utils\File;
+
 try {
     $numOfBooks = (new LibroRepository())->getCount();
     $numOfUsers = (new UsuarioRepository())->getCount();
@@ -9,11 +22,11 @@ try {
     $librosLibres = (new LibroRepository())->getLibres();
     $mensajes = (new MensajeRepository())->getAll();
     $librosPrestados = (new LibroRepository())->getPrestados();
+    $config = json_decode(file_get_contents('storage/config.json'),true);
+    //file_put_contents('storage/config.json',json_encode($config,JSON_PRETTY_PRINT));
 
     //añadir colaborador
     if (isset($_POST['addColaborador'])) {
-
-        require_once 'utils/File.php';
 
         $img = new File('colImg');
         $img->saveUploadedFile(Colaborador::RUTA_IMAGEN);
@@ -30,7 +43,7 @@ try {
         setcookie('currentUser',$selected,0);
         $_COOKIE['currentUser'] = $selected;
         $message = "Usuario cambiado correctamente";
-        logInfo($message);
+        Utils::logInfo($message);
     }
 
     //Añadir libro
@@ -77,22 +90,22 @@ try {
         }
 
         $email = $_POST['email'];
-        validateMail($email);
+        Utils::validateMail($email);
         if ((new UsuarioRepository())->userExists($email)) {
             throw new Exception("El usuario que intentas añadir ya existe");
         }
         $birthdate = $_POST['birthdate'];
         $phone = $_POST['phone'];
         if (!empty($phone)) {
-            validatePhone($phone);
+            Utils::validatePhone($phone);
         }
         $name = $_POST['name'];
         if (!empty($name)) {
-            validateName($name);
+            Utils::validateName($name);
         }
         $surnames = $_POST['surnames'];
         if (!empty($surnames)) {
-            validateName($surnames);
+            Utils::validateName($surnames);
         }
 
         $usuario = new Usuario($email, $birthdate, $phone, $img, $name, $surnames);

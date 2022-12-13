@@ -1,8 +1,11 @@
 <?php
 
-require_once 'database/IEntity.php';
+namespace biblioteca\app\entities;
 
-class Usuario implements IEntity {
+use biblioteca\database\IEntity;
+
+class Usuario implements IEntity
+{
 
     private $email;
     private $fechaNacimiento;
@@ -26,63 +29,79 @@ class Usuario implements IEntity {
     {
         return $this->nombre;
     }
+
     public function setNombre($nombre): void
     {
         $this->nombre = $nombre;
     }
+
     public function getApellidos()
     {
         return $this->apellidos;
     }
+
     public function setApellidos($apellidos): void
     {
         $this->apellidos = $apellidos;
     }
-    public function getUrlImagen() {
+
+    public function getUrlImagen()
+    {
         return self::RUTA_IMAGEN . $this->imagen;
     }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 
-    public function getNombreCompleto() {
+    public function getNombreCompleto()
+    {
         return $this->nombre . " " . $this->apellidos;
     }
 
-    public function setNombreCompleto($nombreCompleto) {
+    public function setNombreCompleto($nombreCompleto)
+    {
         $this->nombreCompleto = $nombreCompleto;
     }
 
-    public function getFechaNacimiento() {
+    public function getFechaNacimiento()
+    {
         return $this->fechaNacimiento;
     }
 
-    public function setFechaNacimiento($fechaNacimiento) {
+    public function setFechaNacimiento($fechaNacimiento)
+    {
         $this->fechaNacimiento = $fechaNacimiento;
     }
 
-    public function getTelefono() {
+    public function getTelefono()
+    {
         return $this->telefono;
     }
 
-    public function setTelefono($telefono) {
+    public function setTelefono($telefono)
+    {
         $this->telefono = $telefono;
     }
 
-    public function getImagen() {
+    public function getImagen()
+    {
         return $this->imagen;
     }
 
-    public function setImagen($imagen) {
+    public function setImagen($imagen)
+    {
         $this->imagen = $imagen;
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return [
             'email' => $this->getEmail(),
             'fechaNacimiento' => $this->getFechaNacimiento(),

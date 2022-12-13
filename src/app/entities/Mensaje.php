@@ -1,8 +1,11 @@
 <?php
 
-require_once 'database/IEntity.php';
+namespace biblioteca\app\entities;
 
-class Mensaje implements IEntity {
+use biblioteca\database\IEntity;
+
+class Mensaje implements IEntity
+{
 
     private $nombreCompleto;
     private $email;
@@ -10,7 +13,8 @@ class Mensaje implements IEntity {
     private $asunto;
     private $mensaje;
 
-    public function __construct($nombreCompleto, $email, $telefono, $asunto, $mensaje) {
+    public function __construct($nombreCompleto, $email, $telefono, $asunto, $mensaje)
+    {
         $this->nombreCompleto = $nombreCompleto;
         $this->email = $email;
         $this->telefono = $telefono;
@@ -18,47 +22,58 @@ class Mensaje implements IEntity {
         $this->mensaje = $mensaje;
     }
 
-    public function getNombreCompleto() {
+    public function getNombreCompleto()
+    {
         return $this->nombreCompleto;
     }
 
-    public function setNombreCompleto($nombreCompleto) {
+    public function setNombreCompleto($nombreCompleto)
+    {
         $this->nombreCompleto = $nombreCompleto;
     }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 
-    public function getTelefono() {
+    public function getTelefono()
+    {
         return $this->telefono;
     }
 
-    public function setTelefono($telefono) {
+    public function setTelefono($telefono)
+    {
         $this->telefono = $telefono;
     }
 
-    public function getAsunto() {
+    public function getAsunto()
+    {
         return $this->asunto;
     }
 
-    public function setAsunto($asunto) {
+    public function setAsunto($asunto)
+    {
         $this->asunto = $asunto;
     }
 
-    public function getMensaje() {
+    public function getMensaje()
+    {
         return $this->mensaje;
     }
 
-    public function setMensaje($mensaje) {
+    public function setMensaje($mensaje)
+    {
         $this->mensaje = $mensaje;
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return [
             'nombreCompleto' => $this->getNombreCompleto(),
             'email' => $this->getEmail(),

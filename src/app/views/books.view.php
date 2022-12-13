@@ -1,5 +1,8 @@
 <?php
-    require_once 'partials/menu.part.php';
+
+use biblioteca\app\repositories\LibroRepository;
+
+require_once 'partials/menu.part.php';
 ?>
 
 <div class="page-heading">

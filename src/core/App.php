@@ -1,6 +1,9 @@
 <?php
 
-require_once 'exceptions/AppException.php';
+namespace biblioteca\core;
+
+use biblioteca\app\exceptions\AppException;
+use biblioteca\database\Conexion;
 
 class App {
 

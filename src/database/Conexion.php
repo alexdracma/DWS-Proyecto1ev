@@ -1,7 +1,10 @@
 <?php
 
-require_once 'exceptions/DatabaseException.php';
-require_once 'core/App.php';
+namespace biblioteca\database;
+
+use biblioteca\app\exceptions\DatabaseException;
+use biblioteca\core\App;
+use PDO;
 
 class Conexion{
     public static function make(){ //funcion estática!!

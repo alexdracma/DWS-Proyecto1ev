@@ -1,13 +1,20 @@
 <?php
 
-require_once 'entities/Libro.php';
+namespace biblioteca\app\repositories;
 
-class LibroRepository extends QueryBuilder {
-    public function __construct($table='libro', $entity = 'Libro', $args = ['id','isbn13','nombre','autor','genero']) {
+use biblioteca\app\entities\Libro;
+use biblioteca\database\QueryBuilder;
+//use biblioteca\app\repositories\PrestamoRepository;
+
+class LibroRepository extends QueryBuilder
+{
+    public function __construct($table = 'libro', $entity = Libro::class, $args = ['id', 'isbn13', 'nombre', 'autor', 'genero'])
+    {
         parent::__construct($table, $entity, $args);
     }
 
-    public function isPrestado($libro):bool {
+    public function isPrestado($libro): bool
+    {
         $pr = new PrestamoRepository();
         $id = $libro->getId();
 
@@ -20,12 +27,14 @@ class LibroRepository extends QueryBuilder {
         return true;
     }
 
-    public function getLibres() {
+    public function getLibres()
+    {
         $sql = "SELECT * FROM libro WHERE id NOT IN (SELECT libro FROM prestamo where fechaDevolucion is null);";
         return parent::exec($sql);
     }
 
-    public function getPrestados() {
+    public function getPrestados()
+    {
         $sql = "SELECT * FROM libro WHERE id IN (SELECT libro FROM prestamo where fechaDevolucion is null);";
         return parent::exec($sql);
     }

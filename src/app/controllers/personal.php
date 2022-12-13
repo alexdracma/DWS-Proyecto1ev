@@ -1,4 +1,10 @@
 <?php
+
+namespace biblioteca\app\controllers;
+
+use biblioteca\app\repositories\MensajeRepository;
+use biblioteca\app\repositories\UsuarioRepository;
+
 try {
     $ur = new UsuarioRepository();
     $currentUserEmail = $_COOKIE['currentUser'];

@@ -1,5 +1,10 @@
 <?php
-require_once 'utils/Form.php';
+
+namespace biblioteca\app\controllers;
+
+use biblioteca\app\entities\Mensaje;
+use biblioteca\app\repositories\MensajeRepository;
+use biblioteca\app\utils\Form;
 
 $form = new Form("", "", "", "", "");
 
