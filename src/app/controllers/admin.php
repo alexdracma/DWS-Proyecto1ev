@@ -12,6 +12,7 @@ use biblioteca\app\repositories\PrestamoRepository;
 use biblioteca\app\repositories\UsuarioRepository;
 use biblioteca\app\utils\Utils;
 use biblioteca\app\utils\File;
+use Exception;
 
 try {
     $numOfBooks = (new LibroRepository())->getCount();
@@ -19,11 +20,8 @@ try {
     $numOfPrestamos = (new PrestamoRepository())->getNumOfPrestados();
     $numOfColaboradores = (new ColaboradorRepository())->getCount();
     $usuarios = (new UsuarioRepository())->getAll();
-    $librosLibres = (new LibroRepository())->getLibres();
     $mensajes = (new MensajeRepository())->getAll();
-    $librosPrestados = (new LibroRepository())->getPrestados();
     $config = json_decode(file_get_contents('storage/config.json'),true);
-    //file_put_contents('storage/config.json',json_encode($config,JSON_PRETTY_PRINT));
 
     //añadir colaborador
     if (isset($_POST['addColaborador'])) {
@@ -115,7 +113,13 @@ try {
 
     //Prestar libro
     if (isset($_POST['lendToUser'])) {
-        (new PrestamoRepository())->prestar($_POST['lendBook'],$_POST['lendUser']);
+        $pr = new PrestamoRepository();
+
+        if ($pr->getNumOfUserPrestados($_POST['lendUser']) >= $config['numMaxPrestamos']) {
+            throw new Exception("Este usuario ha alcanzado el límite de préstamos");
+        }
+
+        $pr->prestar($_POST['lendBook'],$_POST['lendUser']);
         $message = "Libro prestado correctamente";
     }
 
@@ -124,10 +128,24 @@ try {
         (new PrestamoRepository())->devolver($_POST['toReturn']);
         $message = "Libro devuelto correctamente";
     }
+
+    //Cambiar num Préstamos max
+    if (isset($_POST['changeMaxPrestamos'])) {
+        $config['numMaxPrestamos'] = $_POST['maxPrestamos'];
+        file_put_contents('storage/config.json',json_encode($config,JSON_PRETTY_PRINT));
+        $message = "Num máximo de prestamos modificado correctamente";
+        Utils::logInfo($message);
+    }
+
+    $librosLibres = (new LibroRepository())->getLibres();
+    $librosPrestados = (new LibroRepository())->getPrestados();
+
 } catch (Exception $e) {
     $error = $e->getMessage();
+    Utils::logInfo($e->getMessage());
 } catch (Error $e) {
     $error = $e->getMessage();
+    Utils::logInfo($e->getMessage());
 }
 
-require_once 'app/views/admin.view.php';
+require 'app/views/admin.view.php';

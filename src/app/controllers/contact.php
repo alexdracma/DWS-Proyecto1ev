@@ -5,6 +5,7 @@ namespace biblioteca\app\controllers;
 use biblioteca\app\entities\Mensaje;
 use biblioteca\app\repositories\MensajeRepository;
 use biblioteca\app\utils\Form;
+use biblioteca\app\utils\Utils;
 
 $form = new Form("", "", "", "", "");
 
@@ -22,8 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } catch (Exception $e) {
         $error = $e->getMessage();
+        Utils::logInfo($e->getMessage());
     } catch (Error $e) {
         $error = $e->getMessage();
+        Utils::logInfo($e->getMessage());
     }
 }
 

@@ -4,6 +4,7 @@ namespace biblioteca\app\repositories;
 
 use biblioteca\app\entities\Prestamo;
 use biblioteca\database\QueryBuilder;
+use DateTime;
 
 class PrestamoRepository extends QueryBuilder
 {
@@ -28,5 +29,10 @@ class PrestamoRepository extends QueryBuilder
     public function getNumOfPrestados()
     {
         return parent::getCount("fechaDevolucion IS NULL");
+    }
+
+    public function getNumOfUserPrestados($user)
+    {
+        return parent::getCount("usuario = '$user' AND fechaDevolucion IS NULL");
     }
 }

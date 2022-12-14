@@ -195,62 +195,50 @@ require_once 'partials/menu.part.php';
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Numero </h4>
+                            <h4>Numero max de préstamos</h4>
                         </div>
-                        <div class="card-body">
-
-                        </div>
+                        <form method="POST" class="card-body">
+                            <div class="row">
+                                <div class="col-7">
+                                    <select name="maxPrestamos" class="form-select" autocomplete="off">
+                                        <?php
+                                        $options = [];
+                                        $currentMax = (int)$config['numMaxPrestamos'];
+                                        for ($i = 1; $i < 11; $i++) {
+                                            if ($i === $currentMax) {
+                                                echo '<option value="' . $i . '" selected>' . $i . '</option>';
+                                                array_push($options, 'option value="' . $i . '" selected>' . $i . '/option');
+                                            } else {
+                                                echo '<option value="' . $i . '">' . $i . '</option>';
+                                                array_push($options, 'option value="' . $i . '">' . $i . '/option');
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <input type="submit" name="changeMaxPrestamos" value="Cambiar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
-                        <div class="card-body px-3 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon blue">
-                                        <i class="icon-account-circle"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Usuarios</h6>
-                                    <h6 class="font-extrabold mb-0"><?php echo $numOfUsers ?></h6>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="card-header"></div>
+                        <div class="card-body"></div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
-                        <div class="card-body px-3 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon green">
-                                        <i class="icon-book-account"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Préstamos</h6>
-                                    <h6 class="font-extrabold mb-0"><?php echo $numOfPrestamos ?></h6>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="card-header"></div>
+                        <div class="card-body"></div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
-                        <div class="card-body px-3 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon red">
-                                        <i class="icon-account-group"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Colaboradores</h6>
-                                    <h6 class="font-extrabold mb-0"><?php echo $numOfColaboradores ?></h6>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="card-header"></div>
+                        <div class="card-body"></div>
                     </div>
                 </div>
             </div>
