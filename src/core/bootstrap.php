@@ -4,13 +4,19 @@ require __DIR__ . '/../vendor/autoload.php';
 use biblioteca\core\App;
 use biblioteca\core\Router;
 use biblioteca\app\utils\Mylog;
+use biblioteca\app\utils\MyMail;
 
 $config = require 'app/config.php';
-$routes = require 'app/routes.php';
-$logger = MyLog::load('logs/biblioteca.log');
 App::bind('config',$config);
+
+$routes = require 'app/routes.php';
 App::bind('routes',$routes);
+
+$logger = MyLog::load('logs/biblioteca.log');
 App::bind('logger',$logger);
+
+$mailer = new MyMail();
+App::bind('mailer', $mailer);
 
 App::getConexion();
 

@@ -12,5 +12,12 @@ return[
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_PERSISTENT => true    
         ]
+    ],
+    'email' => [
+        'smtp_server'=>'smtp.gmail.com',
+        'smtp_port'=>'587',
+        'smtp_security'=>'tls',
+        'username'=>'alexdracma@gmail.com',
+        'password'=>'fwegbeormdvopqsh'
     ]
 ];

@@ -39,4 +39,8 @@ class Utils {
     public static function logInfo($message) {
         App::get('logger')->Add($message);
     }
+
+    public static function sendMail($asunto, $mailTo, $nameTo, $mensaje) {
+        App::get('mailer')->send($asunto, $mailTo, $nameTo, $mensaje);
+    }
 }

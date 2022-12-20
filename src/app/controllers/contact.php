@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($form->validate()) {
             (new MensajeRepository())->save(new Mensaje($_POST['fullName'], $_POST['email'], $_POST['phone'], $_POST['about'], $_POST['message']));
+            Utils::sendMail($_POST['about'], $_POST['email'], $_POST['fullName'], $_POST['message']);
             $form = new Form("", "", "", "", "");
             $message = 'Mensaje enviado correctamente';
         } else {
