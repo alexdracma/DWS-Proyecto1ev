@@ -1,9 +1,9 @@
 <?php
 
 return [
-    '' => 'app/controllers/index.php',
-    'libros' => 'app/controllers/books.php',
-    'personal' => 'app/controllers/personal.php',
-    'contacto' => 'app/controllers/contact.php',
-    'administracion' => 'app/controllers/admin.php'
+    '' => __DIR__ . '/../app/controllers/index.php',
+    'libros' => __DIR__ . '/../app/controllers/books.php',
+    'personal' => __DIR__ . '/../app/controllers/personal.php',
+    'contacto' => __DIR__ . '/../app/controllers/contact.php',
+    'administracion' => __DIR__ . '/../app/controllers/admin.php'
 ];

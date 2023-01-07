@@ -22,15 +22,15 @@
     <!-- simple datatables -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
-    <script src="code/scripts/datatables.js" type="module" defer></script>
+    <script src="assets/code/scripts/datatables.js" type="module" defer></script>
     <!-- Tom select -->
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <!-- Personal -->
-    <link rel="stylesheet" href="code/styles/css/styles.css">
-    <link rel="stylesheet" href="code/styles/css/myStyles.css">
-    <script src="code/scripts/sidebar.js" defer></script>
-    <script src="code/scripts/active.js" defer></script>
+    <link rel="stylesheet" href="assets/code/styles/css/styles.css">
+    <link rel="stylesheet" href="assets/code/styles/css/myStyles.css">
+    <script src="assets/code/scripts/sidebar.js" defer></script>
+    <script src="assets/code/scripts/active.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -91,7 +91,7 @@
                 <div id="messageIcon" class="p-2"><i></i></div>
                 <div id="messageText"></div>
             </div>
-            <script src="code/scripts/messageBox.js"></script>
+            <script src="assets/code/scripts/messageBox.js"></script>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3" onclick=""></i>

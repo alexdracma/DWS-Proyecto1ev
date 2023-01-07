@@ -22,10 +22,17 @@ class App {
 
     public static function getConexion() {
         if(! array_key_exists('conexion', static::$container)) {
-            require_once 'database/conexion.php';
+            require_once __DIR__ . '/../database/conexion.php';
             static::$container['conexion'] = Conexion::make();
         }
 
         return static::$container['conexion'];
+    }
+
+    public static function getRepository($repoName) {
+        if (!array_key_exists($repoName, static::$container)) {
+            static::$container[$repoName] = new $repoName();
+        }
+        return static::$container[$repoName];
     }
 }

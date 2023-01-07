@@ -3,6 +3,7 @@
 namespace biblioteca\app\repositories;
 
 use biblioteca\app\entities\Libro;
+use biblioteca\core\App;
 use biblioteca\database\QueryBuilder;
 //use biblioteca\app\repositories\PrestamoRepository;
 
@@ -15,7 +16,7 @@ class LibroRepository extends QueryBuilder
 
     public function isPrestado($libro): bool
     {
-        $pr = new PrestamoRepository();
+        $pr = App::getRepository(PrestamoRepository::class);
         $id = $libro->getId();
 
         $registros = $pr->getWhere("libro = $id AND fechaDevolucion IS NULL");

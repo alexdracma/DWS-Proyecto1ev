@@ -2,6 +2,7 @@
 
 namespace biblioteca\app\controllers;
 
+use biblioteca\core\app;
 use biblioteca\app\entities\Colaborador;
 use biblioteca\app\entities\Libro;
 use biblioteca\app\entities\Usuario;
@@ -15,13 +16,13 @@ use biblioteca\app\utils\File;
 use Exception;
 
 try {
-    $numOfBooks = (new LibroRepository())->getCount();
-    $numOfUsers = (new UsuarioRepository())->getCount();
-    $numOfPrestamos = (new PrestamoRepository())->getNumOfPrestados();
-    $numOfColaboradores = (new ColaboradorRepository())->getCount();
-    $usuarios = (new UsuarioRepository())->getAll();
-    $mensajes = (new MensajeRepository())->getAll();
-    $config = json_decode(file_get_contents('storage/config.json'),true);
+    $numOfBooks = (App::getRepository(LibroRepository::class))->getCount();
+    $numOfUsers = (App::getRepository(UsuarioRepository::class))->getCount();
+    $numOfPrestamos = (App::getRepository(PrestamoRepository::class))->getNumOfPrestados();
+    $numOfColaboradores = (App::getRepository(ColaboradorRepository::class))->getCount();
+    $usuarios = (App::getRepository(UsuarioRepository::class))->getAll();
+    $mensajes = (App::getRepository(MensajeRepository::class))->getAll();
+    $config = json_decode(file_get_contents(__DIR__ . '/../../storage/config.json'),true);
 
     //añadir colaborador
     if (isset($_POST['addColaborador'])) {
@@ -31,7 +32,7 @@ try {
 
         $colaborador = new Colaborador($_POST['colNom'], $_POST['colDesc'], $img->getName());
 
-        (new ColaboradorRepository())->save($colaborador);
+        (App::getRepository(ColaboradorRepository::class))->save($colaborador);
         $message = "Colaborador añadido correctamente";
     }
 
@@ -70,7 +71,7 @@ try {
             $genre = null;
         }
 
-        (new LibroRepository())->save(new Libro($id, $isbn, $name, $author, $genre));
+        (App::getRepository(LibroRepository::class))->save(new Libro($id, $isbn, $name, $author, $genre));
         $message = "Libro añadido correctamente";
     }
 
@@ -89,7 +90,7 @@ try {
 
         $email = $_POST['email'];
         Utils::validateMail($email);
-        if ((new UsuarioRepository())->userExists($email)) {
+        if ((App::getRepository(UsuarioRepository::class))->userExists($email)) {
             throw new Exception("El usuario que intentas añadir ya existe");
         }
         $birthdate = $_POST['birthdate'];
@@ -107,13 +108,13 @@ try {
         }
 
         $usuario = new Usuario($email, $birthdate, $phone, $img, $name, $surnames);
-        (new UsuarioRepository())->save($usuario);
+        (App::getRepository(UsuarioRepository::class))->save($usuario);
         $message = "Usuario añadido correctamente";
     }
 
     //Prestar libro
     if (isset($_POST['lendToUser'])) {
-        $pr = new PrestamoRepository();
+        $pr = App::getRepository(PrestamoRepository::class);
 
         if ($pr->getNumOfUserPrestados($_POST['lendUser']) >= $config['numMaxPrestamos']) {
             throw new Exception("Este usuario ha alcanzado el límite de préstamos");
@@ -125,7 +126,7 @@ try {
 
     //Devolver libro
     if (isset($_POST['returnBook'])) {
-        (new PrestamoRepository())->devolver($_POST['toReturn']);
+        (App::getRepository(PrestamoRepository::class))->devolver($_POST['toReturn']);
         $message = "Libro devuelto correctamente";
     }
 
@@ -137,8 +138,8 @@ try {
         Utils::logInfo($message);
     }
 
-    $librosLibres = (new LibroRepository())->getLibres();
-    $librosPrestados = (new LibroRepository())->getPrestados();
+    $librosLibres = (App::getRepository(LibroRepository::class))->getLibres();
+    $librosPrestados = (App::getRepository(LibroRepository::class))->getPrestados();
 
 } catch (Exception $e) {
     $error = $e->getMessage();
@@ -148,4 +149,4 @@ try {
     Utils::logInfo($e->getMessage());
 }
 
-require 'app/views/admin.view.php';
+require __DIR__ . '/../views/admin.view.php';

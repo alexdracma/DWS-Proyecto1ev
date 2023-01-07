@@ -21,9 +21,9 @@
     <!-- Iconly -->
     <link href="https://dev.iconly.io/public/y6qS8rAn7aW2/iconly.css" rel="stylesheet"/>
     <!-- Personal -->
-    <link rel="stylesheet" href="code/styles/css/styles.css">
-    <link rel="stylesheet" href="code/styles/css/myStyles.css">
-    <link rel="stylesheet" href="code/styles/css/error.css">
+    <link rel="stylesheet" href="assets/code/styles/css/styles.css">
+    <link rel="stylesheet" href="assets/code/styles/css/myStyles.css">
+    <link rel="stylesheet" href="assets/code/styles/css/error.css">
 </head>
 <body>
     <form method="post">

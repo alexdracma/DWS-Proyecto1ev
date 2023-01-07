@@ -2,7 +2,7 @@
 require_once 'partials/menu.part.php';
 ?>
 <!-- Tom Select -->
-<script src="code/scripts/select.js" defer></script>
+<script src="assets/code/scripts/select.js" defer></script>
 
 <div class="page-heading">
     <h3>Administración</h3>
