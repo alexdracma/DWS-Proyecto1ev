@@ -11,6 +11,10 @@ body {
     color: #7452c5;
 }
 
+.mainColor {
+    color: #7452c5;
+}
+
 .btn-primary {
     background-color: #7452c5;
     border: 1px solid #523a89;
@@ -125,16 +129,32 @@ ul.dataTable-pagination-list .active a{
     max-height: 123px;
 }
 
+.card.userdata {
+    height: 300px;
+}
+
+.row.userdata span {
+    font-size: 16px;
+    color: rgb(37, 57, 111);
+    margin-left: 5px;
+}
+
+img.userdata {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+}
+
 .card.lastAdminRow {
     height: 450px;
 }
 
 .card.prestamos {
-    height: 435px;
+    height: 460px;
 }
 
 .messageCard {
-    height: 223px;
+    height: 248px;
     overflow: scroll;
 }
 

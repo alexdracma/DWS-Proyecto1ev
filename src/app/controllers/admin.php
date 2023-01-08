@@ -78,8 +78,6 @@ try {
     //Añadir usuario
     if (isset($_POST['addUser'])) {
 
-        require_once 'utils/File.php';
-
         if ($_FILES['imgUser']['tmp_name'] === '') {
             $img = 'defaultAlejandriaUser.png';
         } else {

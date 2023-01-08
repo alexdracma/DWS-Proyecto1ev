@@ -108,6 +108,47 @@ require_once 'partials/menu.part.php';
 
         </div>
     </section>
+    <section class="row userdata">
+        <!-- User data -->
+        <div class="col-12 col-xl-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card userdata">
+                        <div class="card-header d-flex">
+                            <h4>Tus datos</h4>
+                            <h6 class="ms-auto"><a href="">Editar</a></h6>
+                        </div>
+                        <form method="post" class="card-body" style="position: relative;">
+                            <h4 class="mt-2 mb-3 mainColor">Nombre: <span><?php echo $currentUser->getNombreCompleto(); ?></span></h4>
+                            <h5 class="my-2">Email: <span><?php echo $currentUser->getEmail(); ?></span></h5>
+                            <h5 class="my-2">Num. Telf.: <span><?php echo $currentUser->getTelefono(); ?></span></h5>
+                            <h5 class="my-2">Fecha nacimiento: <span><?php echo $currentUser->getFechaNacimiento(); ?></span></h5>
+                            <h5 class="my-2">Imagen: <img class="userdata" src="<?php echo $currentUser->getUrlImagen(); ?>"></h5>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- User address -->
+        <div class="col-12 col-xl-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card userdata">
+                        <div class="card-header d-flex">
+                            <h4>Tu dirección</h4>
+                            <h6 class="ms-auto"><a href="">Editar</a></h6>
+                        </div>
+                        <form method="post" class="card-body" style="position: relative;">
+                            <select name="mainAddress" placeholder="Dirección" autocomplete="off" id="mainAddress" class="mb-2" required>
+                                <option value=""></option>
+                            </select>
+                            <script src="assets/code/scripts/address.js"></script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <?php
